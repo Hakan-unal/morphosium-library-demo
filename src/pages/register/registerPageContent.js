@@ -33,7 +33,7 @@ const RegisterPageContent = () => {
             autoComplete="off"
         >
             <Form.Item
-                label="Username"
+                label="Usernameasdads"
                 name="username"
                 rules={[
                     {

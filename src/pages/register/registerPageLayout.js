@@ -1,5 +1,5 @@
 import React from 'react';
-import RegisterPageContent from './loginPageContent';
+import RegisterPageContent from './registerPageContent';
 import InlineLayout from '../../components/layout/InlineLayout';
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
