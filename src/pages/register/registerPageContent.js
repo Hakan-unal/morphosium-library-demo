@@ -10,7 +10,7 @@ import {
 } from "firebase/firestore";
 
 
-const LoginPageContent = () => {
+const RegisterPageContent = () => {
     const usersCollectionRef = collection(db, "test2");
 
 
@@ -82,4 +82,4 @@ const LoginPageContent = () => {
         </Form>
     );
 };
-export default LoginPageContent;
+export default RegisterPageContent;
