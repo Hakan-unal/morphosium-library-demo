@@ -11,11 +11,11 @@ import {
 import { showNotification } from "../../components/general/showNotification"
 
 const RegisterPageContent = () => {
-    const usersCollectionRef = collection(db, "students");
+    const usersCollectionRef = collection(db, "users");
     const [form] = Form.useForm();
 
     const onFinish = async (values) => {
-        addDoc(usersCollectionRef, { ...values })
+        addDoc(usersCollectionRef, { ...values, isAdmin: false })
             .then(() => {
                 showNotification("success", "Başarılı", "Kayıt işlemi başarılı (Hoşgeldin " + values.username + ")")
                 form.resetFields()

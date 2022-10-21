@@ -1,4 +1,4 @@
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Checkbox, Form, Input, Popover, Row, Col } from 'antd';
 import React from 'react';
 import { db } from "../../firebase-config";
 import {
@@ -8,6 +8,7 @@ import {
     deleteDoc,
     doc,
 } from "firebase/firestore";
+import { AiOutlineExclamationCircle } from "react-icons/ai";
 
 
 const LoginPageContent = () => {
@@ -25,9 +26,9 @@ const LoginPageContent = () => {
     return (
         <Form
             name="basic"
-            labelCol={{ span: 8, }}
-            wrapperCol={{ span: 16, }}
-            initialValues={{ remember: true, }}
+            labelCol={{ span: 2, offset: 6 }}
+            wrapperCol={{ span: 6, offset: 2 }}
+            initialValues={{ isAdmin: false, }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             autoComplete="off"
@@ -42,7 +43,7 @@ const LoginPageContent = () => {
                     },
                 ]}
             >
-                <Input />
+                <Input suffix={<Popover content="admin için kullanıcı adı: admin"><AiOutlineExclamationCircle /></Popover>} />
             </Form.Item>
 
             <Form.Item
@@ -57,28 +58,27 @@ const LoginPageContent = () => {
             >
                 <Input.Password />
             </Form.Item>
+            <Row>
+                <Col xs={{ span: 2, offset: 12 }}>
+                    <Form.Item
+                        name="isAdmin"
+                        valuePropName="checked"
 
-            <Form.Item
-                name="remember"
-                valuePropName="checked"
-                wrapperCol={{
-                    offset: 8,
-                    span: 16,
-                }}
-            >
-                <Checkbox>Remember me</Checkbox>
-            </Form.Item>
+                    >
+                        <Checkbox>Admin</Checkbox>
+                    </Form.Item>
+                </Col>
+                <Col xs={{ span: 6 }}>
 
-            <Form.Item
-                wrapperCol={{
-                    offset: 8,
-                    span: 16,
-                }}
-            >
-                <Button type="primary" htmlType="submit">
-                    Submit
-                </Button>
-            </Form.Item>
+                    <Form.Item
+
+                    >
+                        <Button type="primary" htmlType="submit" block>
+                            Giriş
+                        </Button>
+                    </Form.Item>
+                </Col>
+            </Row>
         </Form>
     );
 };
