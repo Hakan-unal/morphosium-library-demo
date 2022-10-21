@@ -11,6 +11,7 @@ import {
   addDoc,
   deleteDoc,
   doc,
+  add
 } from "firebase/firestore";
 
 
@@ -24,11 +25,14 @@ const LandingPageContent = (props) => {
   const usersCollectionRef = collection(db, "test2");
 
 
+
   const createUser = async () => {
     await addDoc(usersCollectionRef, { name: newName, age: Number(newAge) });
     setNewName("")
     setNewAge(0)
     handleGetData()
+
+
   };
 
   const deleteUser = async (id) => {
