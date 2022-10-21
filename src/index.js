@@ -10,6 +10,8 @@ import { Provider } from "react-redux";
 
 import Page404 from "./pages/404/404.js";
 import LandingPageLayout from "./pages/landingPage/LandingPageLayout.js";
+import LoginPageLayout from "./pages/login/loginPageLayout";
+
 import ScrollToTop from "./routes/ScrollToTop";
 
 
@@ -19,6 +21,9 @@ const routes = (
       <ScrollToTop>
         <Switch>
           <Route exact path="/" component={LandingPageLayout} />
+          <Route exact path="/login" component={LoginPageLayout} />
+
+
           <Route path="*" component={Page404} />
         </Switch>
 
