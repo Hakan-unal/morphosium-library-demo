@@ -1,26 +1,42 @@
 import { Button, Checkbox, Form, Input, Popover, Row, Col } from 'antd';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { db } from "../../firebase-config";
 import {
     collection,
     getDocs,
-    addDoc,
-    deleteDoc,
-    doc,
+    getDoc
 } from "firebase/firestore";
 import { AiOutlineExclamationCircle } from "react-icons/ai";
-
+import { showNotification } from '../../components/general/showNotification';
+import { navigator } from "../../components/general/navigator"
+import { useHistory } from "react-router-dom"
 
 const LoginPageContent = () => {
-    const usersCollectionRef = collection(db, "test2");
-
+    const usersCollectionRef = collection(db, "users");
+    const history = useHistory()
+    const [users, setUsers] = useState([]);
 
     const onFinish = (values) => {
-        console.log('Success:', values);
+        const user = users.filter(data => data.username === values.username && data.password === values.password && data.isAdmin === values.isAdmin)
+        if (user.length !== 0) {
+            navigator(history, "/")
+            showNotification("success", "Hoşgeldin", user[0].username)
+
+        } else showNotification("warning", "Bilgilendirme", "Kullanıcı bulunamadı")
+
     };
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
+
+    const handleGetData = async () => {
+        const data = await getDocs(usersCollectionRef);
+        setUsers(data.docs.map((doc) => ({ ...doc.data(), key: doc.id })))
+    }
+
+    useEffect(() => {
+        handleGetData()
+    }, [])
 
 
     return (
@@ -43,7 +59,7 @@ const LoginPageContent = () => {
                     },
                 ]}
             >
-                <Input suffix={<Popover content="admin için kullanıcı adı: admin"><AiOutlineExclamationCircle /></Popover>} />
+                <Input prefix={<Popover content="admin için kullanıcı adı: admin"><AiOutlineExclamationCircle /></Popover>} />
             </Form.Item>
 
             <Form.Item
@@ -56,7 +72,8 @@ const LoginPageContent = () => {
                     },
                 ]}
             >
-                <Input.Password />
+                <Input.Password prefix={<Popover content="admin için şifre : 123456"><AiOutlineExclamationCircle /></Popover>} />
+
             </Form.Item>
             <Row>
                 <Col xs={{ span: 2, offset: 12 }}>
