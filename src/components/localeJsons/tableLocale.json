@@ -1,0 +1,19 @@
+{
+    "filterReset": "Temizle",
+    "filterConfirm": "Filtrele",
+    "cancelSort": "Numeric Sıralama",
+    "triggerDesc": "Numeric Sıralama",
+    "triggerAsc": "Numeric Sıralama",
+    "filterTitle": "string",
+    "filterEmptyText": "React.ReactNode3",
+    "filterCheckall": "React.ReactNode4",
+    "filterSearchPlaceholder": "React.ReactNode5",
+    "emptyText": "Tabloya ait veri bulunmamakta",
+    "selectAll": "React.ReactNode7",
+    "selectNone": "React.ReactNode8",
+    "selectInvert": "React.ReactNode9",
+    "selectionAll": "React.ReactNode10",
+    "sortTitle": "React.ReactNode11",
+    "expand": "React.ReactNode12",
+    "collapse": "React.ReactNode13"
+}

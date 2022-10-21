@@ -1,0 +1,173 @@
+
+@media only screen and (max-width: 2400px){
+
+.w100{
+    width: 120;
+}
+
+.w200{
+    width: 240;
+}
+
+.w300{
+    width: 360;
+}
+
+.w400{
+    width: 480;
+}
+
+.w500{
+    width: 600;
+}
+
+.w600{
+    width: 720;
+}
+
+.w700{
+    width: 840;
+}
+
+.w800{
+    width: 960;
+}
+
+.w900{
+    width: 1080;
+}
+
+.w1000{
+    width: 1200;
+}
+}
+
+
+@media only screen and (max-width: 1800px){
+
+    .w100{
+        width: 100;
+    }
+    
+    .w200{
+        width: 200;
+    }
+    
+    .w300{
+        width: 300;
+    }
+    
+    .w400{
+        width: 400;
+    }
+    
+    .w500{
+        width: 500;
+    }
+    
+    .w600{
+        width: 600;
+    }
+    
+    .w700{
+        width: 700;
+    }
+    .w800{
+        width: 800;
+    }
+    .w900{
+        width: 900;
+    }
+    .w1000{
+        width: 1000;
+    }
+    }
+
+@media only screen and (max-width: 1200px){
+
+    .w100{
+        width: 80;
+    }
+    
+    .w200{
+        width: 160;
+    }
+    
+    .w300{
+        width: 240;
+    }
+    
+    .w400{
+        width: 320;
+    }
+    
+    .w500{
+        width: 400;
+    }
+    
+    .w600{
+        width: 480;
+    }
+    
+    .w700{
+        width: 560;
+    }
+
+    .w800{
+        width: 640;
+    }
+
+    .w900{
+        width: 720;
+    }
+
+    .w1000{
+        width: 800;
+    }
+    }
+
+
+    @media only screen and (max-width: 600px){
+
+        .w100{
+            width: 60;
+        }
+        
+        .w200{
+            width: 120;
+        }
+        
+        .w300{
+            width: 180;
+        }
+        
+        .w400{
+            width: 240;
+        }
+        
+        .w500{
+            width: 300;
+        }
+        
+        .w600{
+            width: 360;
+        }
+        
+        .w700{
+            width: 420;
+        }
+
+        .w800{
+            width: 480;
+        }
+
+        .w900{
+            width: 540;
+        }
+
+        .w1000{
+            width: 600;
+        }
+        }
+
+   

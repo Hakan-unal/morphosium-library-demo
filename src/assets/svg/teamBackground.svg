@@ -1,0 +1,21 @@
+<svg id="Bg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Bg_Color" data-name="Bg Color" width="1920" height="1080" fill="#f7f8fb"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <path id="Mask" d="M101.04,1.04,1515.6,15.6c55.8.574,101.505,46.277,102.079,102.079l14.556,1414.556a98.566,98.566,0,0,1-100,100L117.675,1617.675C61.872,1617.1,16.17,1571.4,15.6,1515.6L1.04,101.04A98.566,98.566,0,0,1,101.04,1.04Z" transform="translate(1131.371 0) rotate(45)" fill="#e94a1d"/>
+    </clipPath>
+  </defs>
+  <rect id="Bg_Color-2" data-name="Bg Color" width="1920" height="1080" fill="#fff"/>
+  <g id="Bg-2" data-name="Bg" clip-path="url(#clip-path)">
+    <g id="Bg-3" data-name="Bg" transform="translate(308 -1264.133)">
+      <path id="Mask-2" data-name="Mask" d="M101.04,1.04,1515.6,15.6c55.8.574,101.505,46.277,102.079,102.079l14.556,1414.556a98.566,98.566,0,0,1-100,100L117.675,1617.675C61.872,1617.1,16.17,1571.4,15.6,1515.6L1.04,101.04A98.566,98.566,0,0,1,101.04,1.04Z" transform="translate(1131.371 0) rotate(45)" fill="#f54b15"/>
+      <g id="Bg-4" data-name="Bg" transform="translate(0 0)" clip-path="url(#clip-path-2)">
+        <path id="Rectangle" d="M101.04,1.04,1246.156,12.823c55.8.574,101.505,46.277,102.079,102.079l11.783,1145.116a98.566,98.566,0,0,1-100,100L114.9,1348.235c-55.8-.574-101.505-46.277-102.079-102.079L1.04,101.04A98.566,98.566,0,0,1,101.04,1.04Z" transform="translate(1409.476 913.27) rotate(45)" fill="#e94a1d" opacity="0.1"/>
+        <path id="Rectangle-2" data-name="Rectangle" d="M101.04,1.04,1246.156,12.823c55.8.574,101.505,46.277,102.079,102.079l11.783,1145.116a98.566,98.566,0,0,1-100,100L114.9,1348.235c-55.8-.574-101.505-46.277-102.079-102.079L1.04,101.04A98.566,98.566,0,0,1,101.04,1.04Z" transform="translate(1130.809 -129.591) rotate(45)" fill="#1a47b0" opacity="0.1"/>
+        <path id="Rectangle-3" data-name="Rectangle" d="M101.04,1.04,1246.156,12.823c55.8.574,101.505,46.277,102.079,102.079l11.783,1145.116a98.566,98.566,0,0,1-100,100L114.9,1348.235c-55.8-.574-101.505-46.277-102.079-102.079L1.04,101.04A98.566,98.566,0,0,1,101.04,1.04Z" transform="translate(-69.191 134.745) rotate(45)" fill="#1a47b0" opacity="0.1"/>
+      </g>
+    </g>
+  </g>
+</svg>

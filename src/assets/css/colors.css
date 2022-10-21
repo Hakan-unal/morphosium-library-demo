@@ -1,0 +1,66 @@
+
+/*Colors*/
+
+.blue{
+    color:#0F358E!important;
+  }
+  .orange{
+    color:#F54B15 !important;
+  }
+   .black{
+    color:#000000!important;
+   }
+   .white{
+    color:white!important;
+   }
+
+   .pink{
+    color: #F54F6D!important;
+   }
+
+   .green{
+    color:#00BF65!important;
+   }
+
+   .lightBlue{
+     color:#0085F7!important;
+   }
+
+   .purple{
+     color:#A225D0!important;
+   }
+
+   .circlePink{
+     color:#FF4BC1!important;
+   }
+
+   .red{
+     color:#F44A16!important;
+   }
+
+   /*Background*/
+
+   .bgOrange{
+    background-color: #F54B15!important ;
+   }
+
+   .bgBlue{
+    background-color: #0F358E!important ;
+   }
+
+   .bgWhite{
+     background-color: white;
+   }
+
+
+
+   /*Hover*/
+
+   .hOrange:hover{
+    color: orange;
+    transition: .3s ease;
+    outline: none !important;
+    text-decoration: none;
+  }
+
+ 

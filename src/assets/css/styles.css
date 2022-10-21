@@ -1,0 +1,69 @@
+.shadow{
+  box-shadow: rgba(0, 0, 0, 0.30) 0px 54px 55px, rgba(0, 0, 0, 0.22) 0px -12px 30px, rgba(0, 0, 0, 0.22) 0px 4px 6px, rgba(0, 0, 0, 0.27) 0px 12px 13px, rgba(0, 0, 0, 0.19) 0px -3px 5px;
+}
+
+.textCenter{
+  text-align: center;
+}
+
+.letterSpacing{
+  letter-spacing: 2px;
+  line-height: 280%
+}
+
+
+
+.test{
+  border-top: 0px;
+   border-left: 0px;
+    border-right: 0px;
+     border-bottom: 5px solid red
+}
+
+
+.centerItems{
+  margin-left: auto;
+  margin-right: auto;
+  width: 35%;
+  display: block;
+}
+
+
+.formInput{
+  background-color: #0F358E!important;
+  color:white!important;
+  border-radius: 2%!important;
+  border-width: 1px!important;
+}
+
+
+.p20{
+  padding-top: 20px!important;
+  padding-bottom: 20px!important;
+
+}
+
+
+.gradientColor{
+  background-image: linear-gradient(
+    10deg,
+    #0F358E 10%,
+    #0F358E 45%,
+    #0F358E 56%,
+    #0F358E 62%,
+    #0F358E 66%,
+    #0F358E 68%,
+    #0F358E 70%,
+    #0F358E 71%,
+    #0F358E 72%,
+    #0F358E 73%,
+    rgb(255, 255, 255) 76%,
+    rgb(255, 255, 255) 82%,
+    hsl(4deg 0% 100%) 100%
+  )!important;
+}
+
+
+body {
+  overflow-x: hidden; /* Hide scrollbars */
+}

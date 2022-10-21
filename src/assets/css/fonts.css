@@ -1,0 +1,143 @@
+@media only screen and (max-width: 2400px){
+
+  .f8{
+      font-size: 10;
+    }
+    .f16{
+      font-size: 20;
+    }
+    .f24{
+      font-size: 30;
+    }
+    .f32{
+      font-size: 40;
+    }
+    .f40{
+      font-size: 50;
+    }
+    .f48{
+      font-size: 60;
+    }
+    .f56{
+      font-size: 70;
+    }
+    .f64{
+      font-size: 80;
+    }
+    .f72{
+      font-size: 90;
+    }
+    .f80{
+      font-size: 100;
+    }
+    .f88{
+      font-size: 110;
+    }
+    }
+  @media only screen and (max-width: 1800px){
+
+.f8{
+    font-size: 8;
+  }
+  .f16{
+    font-size: 16;
+  }
+  .f24{
+    font-size: 24;
+  }
+  .f32{
+    font-size: 32;
+  }
+  .f40{
+    font-size: 40;
+  }
+  .f48{
+    font-size: 48;
+  }
+  .f56{
+    font-size: 56;
+  }
+  .f64{
+    font-size: 64;
+  }
+  .f72{
+    font-size: 72;
+  }
+  .f80{
+    font-size: 80;
+  }
+  .f88{
+    font-size: 88;
+  }
+  }
+  @media only screen and (max-width: 1200px){
+    .f8{
+      font-size: 6;
+    }
+    .f16{
+      font-size: 12;
+    }
+    .f24{
+      font-size: 16;
+    }
+    .f32{
+      font-size: 24;
+    }
+    .f40{
+      font-size: 30;
+    }
+    .f48{
+      font-size: 36;
+    }
+    .f56{
+      font-size: 42;
+    }
+    .f64{
+      font-size: 48;
+    }
+    .f72{
+      font-size: 54;
+    }
+    .f80{
+      font-size: 60;
+    }
+    .f88{
+      font-size: 66;
+    }
+  }
+
+  @media only screen and (max-width: 600px){
+    .f8{
+      font-size: 4;
+    }
+    .f16{
+      font-size: 8;
+    }
+    .f24{
+      font-size: 12;
+    }
+    .f32{
+      font-size: 16;
+    }
+    .f40{
+      font-size: 20;
+    }
+    .f48{
+      font-size: 24;
+    }
+    .f56{
+      font-size: 28;
+    }
+    .f64{
+      font-size: 32;
+    }
+    .f72{
+      font-size: 72;
+    }
+    .f80{
+      font-size: 80;
+    }
+    .f88{
+      font-size: 88;
+    }
+  }
