@@ -26,19 +26,10 @@ const RegisterPageContent = () => {
         showNotification("warning", "Bilgilendirme", "Lütfen zorunlu alanları doldurunuz")
     };
 
-    // useEffect(async () => {
-    //     // await addDoc(usersCollectionRef, { name: "admin", password: 123456 });
-    //     //    setNewName("")
-    //     //    setNewAge(0)
-    //     //    handleGetData()
-
-
-
-    // }, [])
 
 
     return (<>
-        <p className='textCenter'>merhaba</p>
+        <p className='textCenter'>Register</p>
         <Form
             form={form}
             name="basic"
