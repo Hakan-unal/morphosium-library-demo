@@ -4,7 +4,6 @@ import { db } from "../../firebase-config";
 import {
     collection,
     getDocs,
-    getDoc
 } from "firebase/firestore";
 import { AiOutlineExclamationCircle } from "react-icons/ai";
 import { showNotification } from '../../components/general/showNotification';

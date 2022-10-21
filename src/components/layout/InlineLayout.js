@@ -1,74 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import { Layout, Row, Col, Image } from "antd";
+import React, { useEffect } from 'react';
+import { Layout } from "antd";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { setInlineRedux } from "../../redux/promodex/actions";
-import Navbar from "./navbar.js"
-import Footer from './footer';
-import logo from "../../assets/images/test3.png";
+import { useLocalStorage } from "../../components/hooks/useLocalStorage";
+import { navigator } from "../../components/general/navigator"
+import { useHistory } from "react-router-dom"
 
-import vk from "../../assets/svg/social media/vk.svg"
-import pinterest from "../../assets/svg/social media/pinterest.svg"
-import instagram from "../../assets/svg/social media/instagram.svg"
-import twitter from "../../assets/svg/social media/twitter.svg"
-import facebook from "../../assets/svg/social media/facebook.svg"
 
 
 
 const InlineLayout = (props) => {
     const { Content } = Layout
-
-    const smallScreen = {
-        position: "absolute",
-        left: - (window.innerWidth / 5),
-        top: - (window.innerWidth / 2.9),
-        width: (window.innerWidth * 1.25),
-        height: (window.innerWidth)
-    }
-
-    const largeScreen = {
-        position: "absolute",
-        left: - (window.innerWidth / 5),
-        top: - (window.innerWidth / 2.5),
-        width: (window.innerWidth * 1.2),
-        height: (window.innerWidth)
-    }
-
-    const [leftLineStyle, setLeftLineStyle] = useState(window.innerWidth > 1000 ? largeScreen : smallScreen)
-
-    const [width, setWidth] = useState(window.innerWidth);
+    const [auth, setAuth] = useLocalStorage("auth", null)
+    const history = useHistory()
 
     useEffect(() => {
-        const updateWindowDimensions = () => {
-            const newWidth = window.innerWidth;
-            setWidth(newWidth);
-            if (newWidth > 1000) {
-                setLeftLineStyle({
-                    position: "absolute",
-                    left: - (window.innerWidth / 5),
-                    top: - (window.innerWidth / 2.5),
-                    width: (window.innerWidth * 1.2),
-                    height: (window.innerWidth)
-                })
+        console.log()
+        if (auth === null) navigator(history, "/login")
+        else navigator(history, "/")
+    }, [auth])
 
-            } else {
-                setLeftLineStyle({
-                    position: "absolute",
-                    left: - (window.innerWidth / 5),
-                    top: - (window.innerWidth / 2.9),
-                    width: (window.innerWidth * 1.25),
-                    height: (window.innerWidth)
-                })
 
-            }
 
-        };
-
-        window.addEventListener("resize", updateWindowDimensions);
-
-        return () => window.removeEventListener("resize", updateWindowDimensions)
-
-    }, []);
 
 
     return (
