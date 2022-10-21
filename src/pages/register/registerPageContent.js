@@ -9,16 +9,19 @@ import {
     doc,
 } from "firebase/firestore";
 import { showNotification } from "../../components/general/showNotification"
+import { navigator } from "../../components/general/navigator"
+import { useHistory } from "react-router-dom"
 
 const RegisterPageContent = () => {
     const usersCollectionRef = collection(db, "users");
     const [form] = Form.useForm();
+    const history = useHistory()
 
     const onFinish = async (values) => {
         addDoc(usersCollectionRef, { ...values, isAdmin: false })
             .then(() => {
                 showNotification("success", "Başarılı", "Kayıt işlemi başarılı (Hoşgeldin " + values.username + ")")
-                form.resetFields()
+                navigator(history, "/login")
             }).catch((err) => showNotification("error", "Hata", "Kayıt işlemi başarısız"))
 
     };
@@ -29,7 +32,7 @@ const RegisterPageContent = () => {
 
 
     return (<>
-        <p className='textCenter'>Register</p>
+        <p className='textCenter'>Kayıt Ekranı</p>
         <Form
             form={form}
             name="basic"

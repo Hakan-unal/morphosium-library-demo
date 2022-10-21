@@ -10,28 +10,31 @@ import { AiOutlineExclamationCircle } from "react-icons/ai";
 import { showNotification } from '../../components/general/showNotification';
 import { navigator } from "../../components/general/navigator"
 import { useHistory } from "react-router-dom"
+import { useLocalStorage } from "../../components/hooks/useLocalStorage";
 
 const LoginPageContent = () => {
     const usersCollectionRef = collection(db, "users");
     const history = useHistory()
     const [users, setUsers] = useState([]);
+    const [auth, setAuth] = useLocalStorage("auth", null)
 
     const onFinish = (values) => {
         const user = users.filter(data => data.username === values.username && data.password === values.password && data.isAdmin === values.isAdmin)
         if (user.length !== 0) {
-            navigator(history, "/")
+            setAuth(user[0])
             showNotification("success", "Hoşgeldin", user[0].username)
+            navigator(history, "/")
 
         } else showNotification("warning", "Bilgilendirme", "Kullanıcı bulunamadı")
 
     };
     const onFinishFailed = (errorInfo) => {
-        console.log('Failed:', errorInfo);
+        showNotification("warning", "Bilgilendirme", "Lütfen zorunlu alanları doldurunuz")
     };
 
     const handleGetData = async () => {
         const data = await getDocs(usersCollectionRef);
-        setUsers(data.docs.map((doc) => ({ ...doc.data(), key: doc.id })))
+        setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     }
 
     useEffect(() => {
@@ -39,7 +42,8 @@ const LoginPageContent = () => {
     }, [])
 
 
-    return (
+    return (<>        <p className='textCenter'>Giriş Ekranı</p>
+
         <Form
             name="basic"
             labelCol={{ span: 2, offset: 6 }}
@@ -50,12 +54,12 @@ const LoginPageContent = () => {
             autoComplete="off"
         >
             <Form.Item
-                label="Username"
+                label="Kullanıcı Adı"
                 name="username"
                 rules={[
                     {
                         required: true,
-                        message: 'Please input your username!',
+                        message: 'Lütfen kullanıcı adı giriniz',
                     },
                 ]}
             >
@@ -63,12 +67,12 @@ const LoginPageContent = () => {
             </Form.Item>
 
             <Form.Item
-                label="Password"
+                label="Şifre"
                 name="password"
                 rules={[
                     {
                         required: true,
-                        message: 'Please input your password!',
+                        message: 'Lütfen şifrenizi giriniz',
                     },
                 ]}
             >
@@ -97,6 +101,7 @@ const LoginPageContent = () => {
                 </Col>
             </Row>
         </Form>
+    </>
     );
 };
 export default LoginPageContent;
