@@ -12,6 +12,9 @@ import Page404 from "./pages/404/404.js";
 import LandingPageLayout from "./pages/landingPage/LandingPageLayout.js";
 import LoginPageLayout from "./pages/login/loginPageLayout";
 import RegisterPageLayout from "./pages/register/registerPageLayout";
+import AdminPageLayout from "./pages/admin/adminPageLayout";
+import BookPageLayout from "./pages/book/bookPageLayout";
+import StudentPageLayout from "./pages/student/studentPageLayout";
 
 import ScrollToTop from "./routes/ScrollToTop";
 
@@ -24,6 +27,9 @@ const routes = (
           <Route exact path="/" component={LandingPageLayout} />
           <Route exact path="/login" component={LoginPageLayout} />
           <Route exact path="/register" component={RegisterPageLayout} />
+          <Route exact path="/admin" component={AdminPageLayout} />
+          <Route exact path="/book" component={BookPageLayout} />
+          <Route exact path="/student" component={StudentPageLayout} />
 
 
           <Route path="*" component={Page404} />
