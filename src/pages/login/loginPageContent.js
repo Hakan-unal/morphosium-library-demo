@@ -20,9 +20,6 @@ const LoginPageContent = () => {
     const onFinish = (values) => {
 
         const user = users.filter(data => (data.username === values.username) && (data.password === values.password))
-        console.log(user)
-        console.log(values)
-        console.log(users)
 
         if (user.length !== 0) {
             setAuth(user[0])
@@ -44,6 +41,11 @@ const LoginPageContent = () => {
     useEffect(() => {
         handleGetData()
     }, [])
+
+    useEffect(() => {
+        if (auth === null) navigator(history, "/login")
+        else navigator(history, "public")
+    }, [auth])
 
 
     return (<>        <p className='textCenter'>Giriş Ekranı</p>
@@ -91,6 +93,14 @@ const LoginPageContent = () => {
             >
                 <Button type="primary" htmlType="submit" block>
                     Giriş
+                </Button>
+            </Form.Item>
+            <Form.Item
+                wrapperCol={{ offset: 14, span: 2 }}
+
+            >
+                <Button type="primary" onClick={() => navigator(history, "register")} block>
+                    Kayıt Ol
                 </Button>
             </Form.Item>
         </Form>

@@ -7,11 +7,13 @@ import { useLocalStorage } from "../../components/hooks/useLocalStorage";
 import { navigator } from "../../components/general/navigator"
 import { useHistory } from "react-router-dom"
 import { showNotification } from '../../components/general/showNotification';
+import { useTranslation, withTranslation, Trans } from 'react-i18next';
 
 
 
 
 const InlineLayout = (props) => {
+    // const { t } = this.props;
 
     const [collapsed, setCollapsed] = useState(false);
 
@@ -25,7 +27,6 @@ const InlineLayout = (props) => {
         showNotification("success", "Başarılı", "Çıkış yaptınız")
     }
     const navigation = (val) => {
-        setAuth(null)
         navigator(history, val === 1 ? "/book" : val === 2 ? "/admin" : "/student")
     }
     useEffect(() => {
@@ -43,7 +44,7 @@ const InlineLayout = (props) => {
         <div >
 
             <Layout>
-                {(props.page === "AdminPageContent" || props.page === "BookPageContent" || props.page === "LandingPageContent") &&
+                {auth?.isAdmin &&
                     <Sider style={{
                         minHeight: '100vh',
                     }} collapsible collapsed={collapsed} onCollapse={value => setCollapsed(value)}>
@@ -51,6 +52,16 @@ const InlineLayout = (props) => {
                             <Menu.Item onClick={() => navigation(1)} key={1}>Kitap Listesi</Menu.Item>
                             <Menu.Item onClick={() => navigation(2)} key={2}>Kitap Ekle</Menu.Item>
                             <Menu.Item onClick={() => navigation(3)} key={3}>Öğrenci Listesi</Menu.Item>
+                            <Menu.Item onClick={() => logout()} key={4}>Çıkış</Menu.Item>
+
+                        </Menu>
+                    </Sider>
+                }
+                {auth?.isAdmin === false &&
+                    <Sider style={{
+                        minHeight: '100vh',
+                    }} collapsible collapsed={collapsed} onCollapse={value => setCollapsed(value)}>
+                        <Menu theme="dark" mode="inline" >
                             <Menu.Item onClick={() => logout()} key={4}>Çıkış</Menu.Item>
 
                         </Menu>

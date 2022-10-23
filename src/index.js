@@ -16,6 +16,7 @@ import BookPageLayout from "./pages/book/bookPageLayout";
 import StudentPageLayout from "./pages/student/studentPageLayout";
 import PublicPageLayout from "./pages/public/publicPageLayout"
 import ScrollToTop from "./routes/ScrollToTop";
+// import './i18n';
 
 
 const routes = (
