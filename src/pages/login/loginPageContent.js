@@ -18,11 +18,16 @@ const LoginPageContent = () => {
     const [auth, setAuth] = useLocalStorage("auth", null)
 
     const onFinish = (values) => {
-        const user = users.filter(data => data.username === values.username && data.password === values.password && data.isAdmin === values.isAdmin)
+
+        const user = users.filter(data => (data.username === values.username) && (data.password === values.password))
+        console.log(user)
+        console.log(values)
+        console.log(users)
+
         if (user.length !== 0) {
             setAuth(user[0])
             showNotification("success", "Hoşgeldin", user[0].username)
-            navigator(history, "/")
+            navigator(history, user[0].isAdmin ? "admin" : "public")
 
         } else showNotification("warning", "Bilgilendirme", "Kullanıcı bulunamadı")
 
@@ -62,7 +67,7 @@ const LoginPageContent = () => {
                     },
                 ]}
             >
-                <Input prefix={<Popover content="admin için kullanıcı adı: admin"><AiOutlineExclamationCircle /></Popover>} />
+                <Input prefix={<Popover content="admin için kullanıcı adı: test"><AiOutlineExclamationCircle /></Popover>} />
             </Form.Item>
 
             <Form.Item
@@ -75,30 +80,19 @@ const LoginPageContent = () => {
                     },
                 ]}
             >
-                <Input.Password prefix={<Popover content="admin için şifre : 123456"><AiOutlineExclamationCircle /></Popover>} />
+                <Input.Password prefix={<Popover content="admin için şifre : test"><AiOutlineExclamationCircle /></Popover>} />
 
             </Form.Item>
-            <Row>
-                <Col xs={{ span: 2, offset: 12 }}>
-                    <Form.Item
-                        name="isAdmin"
-                        valuePropName="checked"
 
-                    >
-                        <Checkbox>Admin</Checkbox>
-                    </Form.Item>
-                </Col>
-                <Col xs={{ span: 6 }}>
 
-                    <Form.Item
+            <Form.Item
+                wrapperCol={{ offset: 14, span: 2 }}
 
-                    >
-                        <Button type="primary" htmlType="submit" block>
-                            Giriş
-                        </Button>
-                    </Form.Item>
-                </Col>
-            </Row>
+            >
+                <Button type="primary" htmlType="submit" block>
+                    Giriş
+                </Button>
+            </Form.Item>
         </Form>
     </>
     );

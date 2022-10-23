@@ -2,13 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { setInlineRedux } from "../../redux/promodex/actions";
-import { Row, Col, Button, Input, Table } from "antd"
+import { Row, Col, Button, Table } from "antd"
 
 import { db } from "../../firebase-config";
 import {
     collection,
     getDocs,
-    addDoc,
     deleteDoc,
     doc
 } from "firebase/firestore";
@@ -16,23 +15,15 @@ import {
 
 const BookPageContent = (props) => {
     const [loading, setLoading] = useState(true)
-    const [newName, setNewName] = useState("");
-    const [newAge, setNewAge] = useState(0);
     const [books, setBooks] = useState([]);
+    const [borrows, setBorrows] = useState([]);
 
 
-    const usersCollectionRef = collection(db, "books");
+    const booksCollectionRef = collection(db, "books");
+    const borrowsCollectionRef = collection(db, "borrow");
 
 
 
-    const createUser = async () => {
-        await addDoc(usersCollectionRef, { name: newName, age: Number(newAge) });
-        setNewName("")
-        setNewAge(0)
-        handleGetData()
-
-
-    };
 
     const deleteUser = async (id) => {
         const userDoc = doc(db, "books", id);
@@ -41,8 +32,12 @@ const BookPageContent = (props) => {
     };
 
     const handleGetData = async () => {
-        const data = await getDocs(usersCollectionRef);
+        const data = await getDocs(booksCollectionRef);
+        const data1 = await getDocs(borrowsCollectionRef);
+
         setBooks(data.docs.map((doc) => ({ ...doc.data(), key: doc.id })));
+        setBorrows(data1.docs.map((doc) => ({ ...doc.data(), key: doc.id })));
+
         setLoading(false)
     }
 
@@ -79,7 +74,7 @@ const BookPageContent = (props) => {
             key: 'year',
         },
         {
-            title: 'Action',
+            title: 'İşlem',
             dataIndex: 'id',
             key: 'id',
             render: (data) => <Button onClick={() => deleteUser(data.id)}>Delete</Button>,
@@ -87,12 +82,49 @@ const BookPageContent = (props) => {
 
     ];
 
+    const columns1 = [
+        {
+            title: 'Kitap Adı',
+            dataIndex: 'name',
+            key: 'name',
+        },
+        {
+            title: 'Kitap Yazarı',
+            dataIndex: 'author',
+            key: 'author',
+        },
+        {
+            title: 'Yayınevi',
+            dataIndex: 'home',
+            key: 'home',
+        },
+        {
+            title: 'Year',
+            dataIndex: 'year',
+            key: 'year',
+        },
+        {
+            title: 'Ödünç Alan',
+            dataIndex: 'user',
+            key: 'user',
+        },
+
+
+    ];
+
 
     return (
         <>
-
-            <Table loading={loading} dataSource={books} columns={columns} />;
-
+            <Row>
+                <Col xs={10}>
+                    <p>Kitap Listesi</p>
+                    <Table loading={loading} dataSource={books} columns={columns} />
+                </Col>
+                <Col xs={{ offset: 3, span: 10 }}>
+                    <p>Ödünç Alınan Kitap Listesi</p>
+                    <Table loading={loading} dataSource={borrows} columns={columns1} />
+                </Col>
+            </Row>
         </>
     );
 }

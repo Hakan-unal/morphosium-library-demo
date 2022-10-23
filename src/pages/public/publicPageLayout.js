@@ -1,5 +1,5 @@
 import React from 'react';
-import LandingPageContent from './LandingPageContent';
+import PublicPageContent from './publicPageContent';
 import InlineLayout from '../../components/layout/InlineLayout';
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
@@ -7,10 +7,10 @@ import { setInlineRedux } from "../../redux/promodex/actions";
 
 
 
-const LandingPageLayout = (props) => {
+const PublicPageLayout = (props) => {
 
     return (
-        <InlineLayout page='LandingPageContent' content={<LandingPageContent />} />
+        <InlineLayout page='PublicPageContent' content={<PublicPageContent />} />
     )
 
 }
@@ -18,4 +18,4 @@ const LandingPageLayout = (props) => {
 const mapState = (globalState) => {
     return { inlineInformation: globalState.inlineInformation };
 };
-export default connect(mapState, { setInlineRedux })(withRouter(LandingPageLayout));
+export default connect(mapState, { setInlineRedux })(withRouter(PublicPageLayout));

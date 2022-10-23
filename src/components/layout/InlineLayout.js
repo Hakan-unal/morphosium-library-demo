@@ -6,6 +6,7 @@ import { setInlineRedux } from "../../redux/promodex/actions";
 import { useLocalStorage } from "../../components/hooks/useLocalStorage";
 import { navigator } from "../../components/general/navigator"
 import { useHistory } from "react-router-dom"
+import { showNotification } from '../../components/general/showNotification';
 
 
 
@@ -18,14 +19,21 @@ const InlineLayout = (props) => {
     const [auth, setAuth] = useLocalStorage("auth", null)
     const history = useHistory()
 
+
+    const logout = () => {
+        setAuth(null)
+        showNotification("success", "Başarılı", "Çıkış yaptınız")
+    }
+    const navigation = (val) => {
+        setAuth(null)
+        navigator(history, val === 1 ? "/book" : val === 2 ? "/admin" : "/student")
+    }
     useEffect(() => {
         if (auth === null) navigator(history, "/login")
         else navigator(history, history?.location?.pathname)
     }, [auth])
 
-    useEffect(() => {
-        console.log(props.page)
-    }, [props.page])
+
 
 
 
@@ -35,14 +43,15 @@ const InlineLayout = (props) => {
         <div >
 
             <Layout>
-                {(props.page === "AdminPageContent" || props.page === "BookPageContent") &&
+                {(props.page === "AdminPageContent" || props.page === "BookPageContent" || props.page === "LandingPageContent") &&
                     <Sider style={{
                         minHeight: '100vh',
                     }} collapsible collapsed={collapsed} onCollapse={value => setCollapsed(value)}>
                         <Menu theme="dark" mode="inline" >
-                            <Menu.Item key={1}>Kitap Listesi</Menu.Item>
-                            <Menu.Item key={2}>Öğrenci Listesi</Menu.Item>
-                            <Menu.Item key={3}>Çıkış</Menu.Item>
+                            <Menu.Item onClick={() => navigation(1)} key={1}>Kitap Listesi</Menu.Item>
+                            <Menu.Item onClick={() => navigation(2)} key={2}>Kitap Ekle</Menu.Item>
+                            <Menu.Item onClick={() => navigation(3)} key={3}>Öğrenci Listesi</Menu.Item>
+                            <Menu.Item onClick={() => logout()} key={4}>Çıkış</Menu.Item>
 
                         </Menu>
                     </Sider>

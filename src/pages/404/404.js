@@ -11,7 +11,7 @@ const Page404 = (props) => {
       status="404"
       title="404"
       subTitle="Sayfa Bulunamadı"
-      extra={<Link to="/" type="primary">Anasayfa'ya dönmek için tıklayın</Link>}
+      extra={<Link to="/public" type="primary">Anasayfa'ya dönmek için tıklayın</Link>}
     />
   )
 }
