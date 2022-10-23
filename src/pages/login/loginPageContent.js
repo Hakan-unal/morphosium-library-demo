@@ -39,6 +39,7 @@ const LoginPageContent = () => {
     }
 
     useEffect(() => {
+
         handleGetData()
     }, [])
 
