@@ -30,7 +30,7 @@ const InlineLayout = (props) => {
         navigator(history, val === 1 ? "/book" : val === 2 ? "/admin" : "/student")
     }
     useEffect(() => {
-        if (auth === null) navigator(history, "/login")
+        if (auth === null) console.log("test")
         else navigator(history, history?.location?.pathname)
     }, [auth])
 
