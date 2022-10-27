@@ -69,7 +69,7 @@ const BookPageContent = (props) => {
             key: 'home',
         },
         {
-            title: 'Year',
+            title: 'Yıl',
             dataIndex: 'year',
             key: 'year',
         },
@@ -99,7 +99,7 @@ const BookPageContent = (props) => {
             key: 'home',
         },
         {
-            title: 'Year',
+            title: 'Yıl',
             dataIndex: 'year',
             key: 'year',
         },
